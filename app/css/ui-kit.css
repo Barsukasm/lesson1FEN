@@ -17,7 +17,7 @@ html, body{
 }
 
 .c-upper-nav{
-	width: 80.1rem;
+	width: 70rem;
 	margin: 2rem auto;
 	display: flex;
 	flex-direction: row;
@@ -157,7 +157,7 @@ html, body{
 	background-color: #f4f4f4;
 }
 .c-navbar{
-	width: 80.1rem;
+	width: 70rem;
 	margin: 0 auto;
 	height: 45px;
 	padding: 12px 0;
