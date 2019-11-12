@@ -140,7 +140,6 @@ const placeProduct = (element, type) => {
     productName.innerText = `${placeToAdd.PN}`;
     price.innerText = `${placeToAdd.Price}`;
     products.splice(products.indexOf(placeToAdd),1);
-    console.log("Текущее состояние списка товаров:", products);
 };
 
 cards.forEach(element=>{

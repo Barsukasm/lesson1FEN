@@ -1,6 +1,6 @@
 const elements = document.querySelectorAll("*");
 
-const genIndex = (base) => Math.floor(base*Math.random());
+
 
 const elIndex = genIndex(elements.length);
 const indexChanged = [elIndex];
@@ -22,4 +22,3 @@ const secondInterval = setInterval(()=>{
         elements[indexChanged.splice(indexDefault,1)].style.backgroundColor="";
     }
 }, 400)
-
