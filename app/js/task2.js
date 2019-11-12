@@ -125,49 +125,31 @@ const products = [
 
 const genIndex = (base) => Math.floor(base*Math.random());
 
-const cardTemplates = document.querySelectorAll(".product-card");
+const cards = document.querySelectorAll(".home__card"),
+    template = document.querySelector(".product-card");
 
-cardTemplates.forEach(element=>{
-    const card = document.querySelector(".home__card");
-    if (card.classList.contains("top-card")){
-        const fittingProducts = products.filter(product=>product.Place == "top");
-        const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
-    } else if (card.classList.contains("big-pic")){
-        const fittingProducts = products.filter(product=>product.Place == "big");
-        const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
+const placeProduct = (element, type) => {
+    const fittingProducts = products.filter(product=>product.Place == type),
+        placeToAdd = fittingProducts[genIndex(fittingProducts.length)],
+        productImage = element.querySelector("img"),
+        supplierName = element.querySelector(".card__sup"),
+        productName = element.querySelector(".card__prod"),
+        price = element.querySelector(".card__price");
+    productImage.setAttribute("src",`assets/${placeToAdd.picURL}`);
+    supplierName.innerText = `${placeToAdd.SN}`;
+    productName.innerText = `${placeToAdd.PN}`;
+    price.innerText = `${placeToAdd.Price}`;
+    products.splice(products.indexOf(placeToAdd),1);
+    console.log("Текущее состояние списка товаров:", products);
+};
+
+cards.forEach(element=>{
+    element.appendChild(document.importNode(template.content, true));
+    if (element.classList.contains("top-card")){
+        placeProduct(element, "top");
+    } else if (element.classList.contains("big-pic")){
+        placeProduct(element,"big");
     }else{
-        const fittingProducts = products.filter(product=>product.Place == "default");
-        const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
+        placeProduct(element,"default");
     }
-});
-
-const cardsPlacements = document.querySelectorAll(".home__card");
-
-
-cardsPlacements.forEach(element=>{
-    const fittingProducts = products.filter(product=>product.Place == "default");
-    const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
-
-    element.innerHTML = renderer(placeToAdd.picURL,placeToAdd.SN,placeToAdd.PN,placeToAdd.Price);
-});
-
-
-const topCardsPlacements = document.querySelectorAll(".top-card");
-
-
-topCardsPlacements.forEach(element=>{
-    const fittingProducts = products.filter(product=>product.Place == "top");
-    const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
-
-    element.innerHTML = renderer(placeToAdd.picURL,placeToAdd.SN,placeToAdd.PN,placeToAdd.Price);
-});
-
-const bigCardsPlacements = document.querySelectorAll(".big-pic");
-
-
-bigCardsPlacements.forEach(element=>{
-    const fittingProducts = products.filter(product=>product.Place == "big");
-    const placeToAdd = fittingProducts[genIndex(fittingProducts.length)];
-
-    element.innerHTML = renderer(placeToAdd.picURL,placeToAdd.SN,placeToAdd.PN,placeToAdd.Price);
 });
