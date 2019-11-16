@@ -1,6 +1,6 @@
 const elements = document.querySelectorAll("*");
 
-
+import {genIndex} from './renderProducts.js';
 
 const elIndex = genIndex(elements.length);
 const indexChanged = [elIndex];

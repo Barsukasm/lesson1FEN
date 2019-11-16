@@ -4,6 +4,7 @@
 	<title>Home (User Login)</title>
 	<link rel="stylesheet" type="text/css" href="css/ui-kit.css">
 	<link rel="stylesheet" type="text/css" href="css/style-home.css">
+	<link rel="stylesheet" type="text/css" href="css/style-category.css">
 </head>
 
 <body>
@@ -47,6 +48,7 @@
 		</div>
 		
 		<!-- End navbar -->
+	</div>
 
 		<!-- Шаблон для карточки товара -->
 		<template class="product-card">
@@ -64,89 +66,197 @@
 				</figcaption>
 			</figure>
 		</template>
-		<!-- основной блок -->
 
+		<!-- Шаблон главной -->
+		<template class="home-wrapper-template">
+			<div class="wrapper">
+				<!-- row 1 -->
+				<div class="home__row">
+					<div class="home__card top-card">
+	
+					</div>
+					<div class="home__card top-card">
+	
+					</div>
+					<div class="home__card home__card_last top-card">
+	
+					</div>
+				</div>
+				<!-- end row 1 -->
+				<!-- row 2 -->
+				<div class="home__row">
+					<div class="home__col home__col_first">
+						<div class="home__card home__card_last big-pic">
+	
+						</div>
+						<div class="home__row">
+							<div class="home__card">
+	
+							</div>
+							<div class="home__card home__card_last">
+	
+							</div>
+						</div>
+						<div class="home__row">
+							<div class="home__card">
+	
+							</div>
+							<div class="home__card home__card_last">
+	
+							</div>
+						</div>
+					</div>
+					<div class="home__col">
+						<div class="home__row home__row_first">
+							<div class="home__card">
+	
+							</div>
+							<div class="home__card home__card_last">
+	
+							</div>
+						</div>
+						
+						<div class="home__row">
+							<div class="home__card">
+	
+							</div>
+							<div class="home__card home__card_last">
+	
+							</div>
+						</div>
+						<div class="home__card home__card_last big-pic">
+	
+						</div>
+					</div>
+				</div>
+				<!-- end row 2 -->
+				<!-- row 3 -->
+				<div class="home__row">
+					<div class="home__card">
+	
+					</div>
+					<div class="home__card">
+	
+					</div>
+					<div class="home__card">
+	
+					</div>
+					<div class="home__card home__card_last">
+	
+					</div>
+				</div>
+				<!-- end row 3 -->
+			
+			</div>
+		</template>
+		
+
+	
+
+	<!-- Шаблон карточки категории -->
+	<template class="template-category-card">
+		<figure>
+			<img src="">
+			<figcaption class="c-clothing__card-caption">
+				<div class="c-clothing__card-description">
+					<p class="card__sup">Supplier’s Name Here</p>
+					<p class="card__prod">Product Name Here</p>
+					<p class="card__price">$29,354.75</p>
+				</div>
+				<div class="c-clothing__more">
+					<img src="assets/combined-shape-2426.svg">
+				</div>
+			</figcaption>
+		</figure>
+	</template>
+
+	<!-- Шаблон категории -->
+	<template class="template-category">
 		<div class="wrapper">
+			<div class="c-clothing__heading">
+				<p class="o-heading__p">Clothing</p>
+			</div>
 			<!-- row 1 -->
-			<div class="home__row">
-				<div class="home__card top-card">
-
+			<div class="c-clothing__row">
+				
+				<div class="c-clothing__card">
+					
 				</div>
-				<div class="home__card top-card">
-
+				<div class="c-clothing__card">
+					
 				</div>
-				<div class="home__card home__card_last top-card">
-
+				<div class="c-clothing__card c-clothing__card_last">
+					
 				</div>
 			</div>
 			<!-- end row 1 -->
 			<!-- row 2 -->
-			<div class="home__row">
-				<div class="home__col home__col_first">
-					<div class="home__card home__card_last big-pic">
-
-					</div>
-					<div class="home__row">
-						<div class="home__card">
-
-						</div>
-						<div class="home__card home__card_last">
-
-						</div>
-					</div>
-					<div class="home__row">
-						<div class="home__card">
-
-						</div>
-						<div class="home__card home__card_last">
-
-						</div>
-					</div>
-				</div>
-				<div class="home__col">
-					<div class="home__row home__row_first">
-						<div class="home__card">
-
-						</div>
-						<div class="home__card home__card_last">
-
-						</div>
-					</div>
+			<div class="c-clothing__row">
+				<div class="c-clothing__card">
 					
-					<div class="home__row">
-						<div class="home__card">
-
-						</div>
-						<div class="home__card home__card_last">
-
-						</div>
-					</div>
-					<div class="home__card home__card_last big-pic">
-
-					</div>
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card c-clothing__card_last">
+					
 				</div>
 			</div>
 			<!-- end row 2 -->
 			<!-- row 3 -->
-			<div class="home__row">
-				<div class="home__card">
-
+			<div class="c-clothing__row">
+				<div class="c-clothing__card">
+					
 				</div>
-				<div class="home__card">
-
+				<div class="c-clothing__card">
+					
 				</div>
-				<div class="home__card">
-
+				<div class="c-clothing__card">
+					
 				</div>
-				<div class="home__card home__card_last">
-
+				<div class="c-clothing__card c-clothing__card_last">
+					
 				</div>
 			</div>
 			<!-- end row 3 -->
+			<!-- row 4 -->
+			<div class="c-clothing__row">
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card c-clothing__card_last">
+					
+				</div>
 			</div>
+			<!-- end row 5 -->
+			<!-- row 5 -->
+			<div class="c-clothing__row">
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card">
+					
+				</div>
+				<div class="c-clothing__card c-clothing__card_last">
+					
+				</div>
+			</div>
+			<!-- end row 5 -->
+			<button class="o-button view-more__button">View More Items</button>
 		</div>
-
-	</div>
+	</template>
 
 	<!-- footer -->
 	<footer class="footer">
@@ -223,9 +333,10 @@
 		</div>
 	</template>
 
-	<script src="js/renderProducts.js"></script>
-	<script src="js/menu.js"></script>
-	<!--<script src="js/task1.js"></script>-->
+	
+	<script type="module" src="js/renderProducts.js"></script>
+	<script type="module" src="js/menu.js"></script>
+	<!--<script type="module" src="js/task1.js"></script>-->
 </body>
 
 </html>
