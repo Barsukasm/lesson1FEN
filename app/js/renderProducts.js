@@ -71,7 +71,6 @@ const rerenderContent = () =>{
         getData(subcatUrl,(products)=>{
             const template = document.querySelector(".template-category-card");
             const wrapperTemplate = document.querySelector('.template-category');
-            console.log(event.target.innerText, "menu", products);
             renderProd(template,wrapperTemplate, "c-clothing__card",products);
         });
     }
