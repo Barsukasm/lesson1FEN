@@ -1,6 +1,6 @@
 const STATUS = {
     OK: 200,
-}
+};
 
 export const getData = (url, callback) => {
     const xhr = new XMLHttpRequest();
