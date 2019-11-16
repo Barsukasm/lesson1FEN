@@ -5,12 +5,12 @@ import { getData } from './requestData.js';
 
 const travel = (event) => {
     event.preventDefault();
-    history.pushState(null,null,`/${event.target.innerText}`);
+    history.pushState(null,null,`/#${event.target.innerText}`);
     const subcatUrl = `http://localhost:3000/api/${event.target.innerText}Content.json`;
     getData(subcatUrl,(products)=>{
         const template = document.querySelector(".template-category-card");
         const wrapperTemplate = document.querySelector('.template-category');
-        console.log(event.target.innerText, "menu", products)
+        console.log(event.target.innerText, "menu", products);
 		renderProd(template,wrapperTemplate, "c-clothing__card",products);
     });
 };
