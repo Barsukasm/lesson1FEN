@@ -72,11 +72,37 @@
 }
 
 .home__more{
-	margin-top: 2.3rem;
+	margin-top: 2.8rem;
 	margin-right: 1rem;
 	float: right;
 }
 
 .home__more:hover{
 	cursor: pointer;
+}
+
+@media screen and (max-width: 1400px){
+	.home-image{
+		height: 16rem;
+		width: 21rem;
+	}
+
+	.home-image_big{
+		height: 24.4rem;
+		width: 34.4rem;
+	}
+
+	.home-image_small{
+		height: 11rem;
+		width: 14rem;
+	}
+
+	.home__col_first{
+		margin-right: 0;
+	}
+	
+	.home__card{	
+		margin-bottom: 6.375rem;
+		margin-right: 6.375rem;
+	}
 }

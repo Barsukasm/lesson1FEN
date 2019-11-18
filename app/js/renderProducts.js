@@ -25,6 +25,8 @@ export const renderProd = (template, wrapperTemplate, cardTemplate, products) =>
             supplierName = element.querySelector(".card__sup"),
             productName = element.querySelector(".card__prod"),
             price = element.querySelector(".card__price");
+        if (type == "big") productImage.classList.add("home-image_big");
+        if (type == "default") productImage.classList.add("home-image_small");
         productImage.setAttribute("src",`assets/${placeToAdd.picURL}`);
         supplierName.innerText = `${placeToAdd.SN}`;
         productName.innerText = `${placeToAdd.PN}`;
