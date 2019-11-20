@@ -10,8 +10,8 @@ const rerenderContent = () =>{
         getData(url,(products) => {
             const template = document.querySelector(".product-card");
             const wrapperTemplate = document.querySelector('.home-wrapper-template');
-            renderProd(template, wrapperTemplate, "home__card",products);
-            addCartListeners();
+            renderProd(template, wrapperTemplate, "home__card",[...products]);
+            addCartListeners(products);
         } );
     } else {
         const urlParse = location.href.split('/'),
@@ -21,8 +21,8 @@ const rerenderContent = () =>{
         getData(subcatUrl,(products)=>{
             const template = document.querySelector(".template-category-card");
             const wrapperTemplate = document.querySelector('.template-category');
-            renderProd(template,wrapperTemplate, "c-clothing__card",products);
-            addCartListeners();
+            renderProd(template,wrapperTemplate, "c-clothing__card",[...products]);
+            addCartListeners(products);
         });
     }
 };

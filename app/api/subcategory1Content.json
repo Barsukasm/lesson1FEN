@@ -3,72 +3,84 @@
         "picURL": "category/image_20.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "24"
     },
     {
         "picURL": "category/image_19.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "25"
     },
     {
         "picURL": "category/image_18.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "26"
     },
     {
         "picURL": "category/image_17.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "27"
     },
     {
         "picURL": "category/image_16.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "28"
     },
     {
         "picURL": "category/image_15.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "29"
     },
     {
         "picURL": "category/image_14.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "30"
     },
     {
         "picURL": "category/image_13.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "31"
     },
     {
         "picURL": "category/image_12.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "32"
     },
     {
         "picURL": "category/image_11.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "33"
     },
     {
         "picURL": "category/image_10.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "34"
     },
     {
         "picURL": "category/image.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
-        "Price": "$29,354.75"
+        "Price": "$29,354.75",
+        "id": "35"
     }
 ]

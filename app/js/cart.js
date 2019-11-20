@@ -23,42 +23,54 @@ Cart.prototype.sum = function () {
     },0);
 };
 
+Cart.prototype.incrimentAmount = function (index) {
+    this._products[index].amount += 1;
+}
 
 let currentCart;
 
-Cart.prototype.contains = function (product) {
-    return this._products.some((element) => {
-       if (element.picURL == product.picURL && element.SN == product.SN && element.PN == product.PN && element.Price == product.Price){
-           return true;
-       }
-       return false;
+Cart.prototype.contains = function (productId) {
+    return this._products.findIndex((element)=>{
+        if (element.id == productId) {
+            return true;
+        } else {
+            return false;
+        }
     });
 };
 
-const addToChart = (event) => {
-    const card = event.currentTarget.parentElement.parentElement;
-    console.log('Parent element: ', card);
-    const element = new Object();
-    element.picURL = card.querySelector('img').getAttribute('src');
-    element.SN = card.querySelector('.card__sup').innerText;
-    element.PN = card.querySelector('.card__prod').innerText;
-    element.Price = card.querySelector('.card__price').innerText;
-    if (currentCart == undefined){
-        currentCart = new Cart(user);
-    }
-    if (!currentCart.contains(element)){
-        currentCart.add(element);
-    }
-};
 
-export const addCartListeners = () => {
-    let moreButtons;
 
-    if (document.querySelectorAll('.c-clothing__more').length>0){
-        moreButtons = document.querySelectorAll('.c-clothing__more');
-    } else if (document.querySelectorAll('.home__more').length>0) {
-        moreButtons = document.querySelectorAll('.home__more');
-    }
+export const addCartListeners = (products) => {
+    const moreButtons = document.querySelectorAll('.home__more');
+    console.log('Products: ', products);
+
+    const addToChart = (event) => {
+        const element = new Object();
+        element.id = event.currentTarget.dataset.id;
+        const product = products.find((elem)=>{
+            if (elem.id ==  element.id) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log('Product: ', product);
+        element.picURL = product.picURL;
+        element.SN = product.SN;
+        element.PN = product.PN;
+        element.Price = product.Price;
+        element.amount = 1;
+        if (currentCart == undefined){
+            currentCart = new Cart(user);
+        }
+        const checkIfCont = currentCart.contains(element.id);
+        if (checkIfCont == -1){
+            currentCart.add(element);
+        } else {
+            currentCart.incrimentAmount(checkIfCont);
+        }
+    };
 
     moreButtons.forEach((element)=>{
         element.addEventListener('click', addToChart);
@@ -72,14 +84,17 @@ const printCart = (event) => {
     } else {
         const msg = [];
         currentCart.get().forEach((product)=>{
+            console.log('form alert msg', product);
             msg.push(`
             Item pic: ${product.picURL}\n
-            Item pic: ${product.SN}\n
-            Item pic: ${product.PN}\n
-            Item pic: ${product.Price}\n
+            Supplier’s Name: ${product.SN}\n
+            Product Name: ${product.PN}\n
+            Price: ${product.Price}\n
+            Amount: ${product.amount}\n
+            Id: ${product.id}
             `);
         });
-        window.alert(`${msg.join('\n==========================\n')} \nSum: ${currentCart.sum()}`);
+        console.log('Msg string: ', msg.join('\n==========================\n'), '\nSum: ', currentCart.sum());
     }
 };
 

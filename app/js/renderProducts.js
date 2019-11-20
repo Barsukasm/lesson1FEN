@@ -1,6 +1,5 @@
 export const genIndex = (base) => Math.floor(base*Math.random());
 
-
 export const renderProd = (template, wrapperTemplate, cardTemplate, products) => {
     const outerWrapper = document.querySelector('.outer-wrapper'),
         initialProductsLength = products.length;
@@ -20,16 +19,18 @@ export const renderProd = (template, wrapperTemplate, cardTemplate, products) =>
         } else {
             fittingProducts = products;
         }
-        const placeToAdd = fittingProducts[genIndex(fittingProducts.length)],
+        const placeToAdd = fittingProducts[0],
             productImage = element.querySelector("img"),
             supplierName = element.querySelector(".card__sup"),
             productName = element.querySelector(".card__prod"),
-            price = element.querySelector(".card__price");
+            price = element.querySelector(".card__price"),
+            moreButton = document.querySelector('.home__more');
         if (type == "big") productImage.classList.add("home-image_big");
         if (type == "default") productImage.classList.add("home-image_small");
         productImage.setAttribute("src",`assets/${placeToAdd.picURL}`);
         supplierName.innerText = `${placeToAdd.SN}`;
         productName.innerText = `${placeToAdd.PN}`;
+        moreButton.setAttribute('data-id',`${placeToAdd.id}`);
         price.innerText = `${placeToAdd.Price}`;
         products.splice(products.indexOf(placeToAdd),1);
     };

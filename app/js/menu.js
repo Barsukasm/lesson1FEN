@@ -34,7 +34,8 @@ const toIndexHtml = (event) =>{
 	getData(homeDataUrl,(products) => {
 		const template = document.querySelector(".product-card");
 		const wrapperTemplate = document.querySelector('.home-wrapper-template');
-		renderProd(template,wrapperTemplate, "home__card",products);
+		renderProd(template,wrapperTemplate, "home__card",[...products]);
+		addCartListeners(products);
 	} );
 };
 

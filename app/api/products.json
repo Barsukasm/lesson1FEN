@@ -4,118 +4,135 @@
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "big"
+        "Place": "big",
+        "id": "0"
     },
     {
         "picURL": "image_5.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "big"
+        "Place": "big",
+        "id": "1"
     },
     {
         "picURL": "layer-32.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "top"
+        "Place": "top",
+        "id": "2"
     },
     {
         "picURL": "2.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "top"
+        "Place": "top",
+        "id": "3"
     },
     {
         "picURL": "layer-31.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "top"
+        "Place": "top",
+        "id": "4"
     },
     {
         "picURL": "image_9.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "5"
     },
     {
         "picURL": "image_8.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "6"
     },
     {
         "picURL": "image_7.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "7"
     },
     {
         "picURL": "image_6.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "8"
     },
     {
         "picURL": "image_13.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "9"
     },
     {
         "picURL": "image_12.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "10"
     },
     {
         "picURL": "image_11.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "11"
     },
     {
         "picURL": "image_10.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "12"
     },
     {
         "picURL": "image_4.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "12"
     },
     {
         "picURL": "image_3.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "13"
     },
     {
         "picURL": "image_2.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "14"
     },
     {
         "picURL": "image.jpg",
         "SN": "Supplier’s Name Here",
         "PN": "Product Name Here",
         "Price": "$29,354.75",
-        "Place": "default"
+        "Place": "default",
+        "id": "15"
     }
 ]

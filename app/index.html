@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/ui-kit.css">
 	<link rel="stylesheet" type="text/css" href="css/style-home.css">
 	<link rel="stylesheet" type="text/css" href="css/style-category.css">
+	<link rel="stylesheet" type="text/css" href="css/style-cart.css">
 </head>
 
 <body>
@@ -163,7 +164,7 @@
 					<p class="card__prod">Product Name Here</p>
 					<p class="card__price">$29,354.75</p>
 				</div>
-				<div class="c-clothing__more">
+				<div class="home__more">
 					<img src="assets/combined-shape-2426.svg">
 				</div>
 			</figcaption>
@@ -335,6 +336,72 @@
 		</div>
 	</template>
 
+
+	<!-- Cart template-->
+	<template class="cart-wrapper-template">
+		<div class="wrapper">
+			<div class="cart">
+				<!-- table -->
+				<table class="c-cart-table">
+				  <tr class="c-header-row o-border-row">
+					<th class="o-remove-item o-border-row"></th>
+					<th class="o-detail o-border-row">ITEM DETAIL</th>
+					<th class="o-price o-border-row">PRICE</th>
+					<th class="o-qty o-border-row">QTY</th>
+					<th></th>
+				  </tr>
+				  <!-- end row 0 -->
+				 
+				</table>
+				<!-- table -->
+				
+				<div class="c-cart-footer">
+					<div class="o-coupon-activation">
+						<input type="text" class="o-input o-coupon-activation__input" placeholder="Coupone code">
+						<button class="o-button o-button-apply o-coupon-activation__button">APPLY</button>
+					</div>
+				
+					<div class="c-to-checkout">
+						<div class="c-to-checkout__o-sum">
+							<p class="c-resulting-sum"><span class="o-subtotal">Subtotal</span><span class="o-subtotal__sum">$145.84</span></p>
+							<p class="c-resulting-sum"><span class="o-subtotal">Shipping</span><span class="o-subtotal__sum">$5.00</span></p>
+						</div>
+						<div class="c-to-checkout__process">
+							<p class="o-total-amount">Total Amount <span class="o-total-amount__sum">$254.84</span></p>
+							<button class="o-button o-checkout-button">PROCESS TO CHECKOUT</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="o-ads">
+				<img src="images/ad.jpg">
+			</div>
+		</div>
+	</template>
+
+
+	<!-- Cart row template -->
+	<template class="cart-row-template">
+		<tr>
+			<td class="o-remove-item"><img src="images/cross.svg"></td>
+			<td class="o-detail">
+				<div>
+					<div class="o-detail__item">
+						<img src="images/bitmap.jpg">
+					</div>				
+					<div class="o-item-info">
+						<p class="o-product">Product Name Here</p>
+						<p class="o-supplier">Supplier’s Name Here</p>
+					</div>
+				</div>
+			</td>
+			<td class="o-price o-price_row">$28.99</td>
+			<td class="o-qty">
+				<input type="text" value="1" class="o-input o-qty__input">
+			</td>
+			<td class="o-sum">$28.99</td>
+		  </tr>
+	</template>
 	
 	<script type="module" src="js/renderProducts.js"></script>
 	<script type="module" src="js/menu.js"></script>

@@ -98,11 +98,15 @@
 	}
 
 	.home__col_first{
-		margin-right: 0;
+		margin-right: 8.375rem;
 	}
 	
 	.home__card{	
-		margin-bottom: 6.375rem;
-		margin-right: 6.375rem;
+		margin-bottom: 8.375rem;
+		margin-right: 8.375rem;
+	}
+
+	.home__card_last{
+		margin-right: 0;
 	}
 }
