@@ -2,6 +2,7 @@ const menuTemplate = document.querySelector(".menu-template");
 
 import {genIndex, renderProd} from './renderProducts.js';
 import { getData } from './requestData.js';
+import {addCartListeners} from './cart.js';
 
 const travel = (event) => {
     event.preventDefault();
@@ -12,6 +13,7 @@ const travel = (event) => {
         const wrapperTemplate = document.querySelector('.template-category');
         console.log(event.target.innerText, "menu", products);
 		renderProd(template,wrapperTemplate, "c-clothing__card",products);
+        addCartListeners();
     });
 };
 

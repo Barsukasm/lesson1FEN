@@ -2,6 +2,7 @@ import {renderProd} from "./renderProducts.js";
 import {getData} from "./requestData.js";
 
 const HOSTNAME = 'http://localhost:3000/';
+import {addCartListeners} from './cart.js';
 
 const rerenderContent = () =>{
     if (location.href == HOSTNAME){
@@ -10,6 +11,7 @@ const rerenderContent = () =>{
             const template = document.querySelector(".product-card");
             const wrapperTemplate = document.querySelector('.home-wrapper-template');
             renderProd(template, wrapperTemplate, "home__card",products);
+            addCartListeners();
         } );
     } else {
         const urlParse = location.href.split('/'),
@@ -20,6 +22,7 @@ const rerenderContent = () =>{
             const template = document.querySelector(".template-category-card");
             const wrapperTemplate = document.querySelector('.template-category');
             renderProd(template,wrapperTemplate, "c-clothing__card",products);
+            addCartListeners();
         });
     }
 };
