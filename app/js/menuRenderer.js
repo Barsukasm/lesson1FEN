@@ -46,7 +46,7 @@ export const renderMenus = (menu, shift, menuContent, index) => {
 			addSubcat(menuSubcats[2], element);
 			if (element.name.length>subcatsWidth[2]) subcatsWidth[2] = element.name.length;
 		} else {
-			console.log ("Cannot visualise element: ", element.name, ",in menu item: ",menu.innerText);
+			//console.log ("Cannot visualise element: ", element.name, ",in menu item: ",menu.innerText);
 		}
 	});
 

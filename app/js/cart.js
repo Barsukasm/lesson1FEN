@@ -1,7 +1,8 @@
-class Cart {
+export class Cart {
     constructor(user){
         this._user = user;
         this._products = [];
+        localStorage.setItem('cart', JSON.stringify(this));
     };  
 }
 
@@ -9,6 +10,12 @@ const user = "user-placeholder";
 
 Cart.prototype.add = function (product) {
     this._products.push(product);
+    localStorage.setItem('cart',JSON.stringify(this));
+};
+
+Cart.prototype.remove = function(id){
+    this._products = this._products.filter(product => product.id != id);
+    localStorage.setItem('cart',JSON.stringify(this));
 };
 
 Cart.prototype.get = function () {
@@ -25,7 +32,7 @@ Cart.prototype.sum = function () {
 
 Cart.prototype.incrimentAmount = function (index) {
     this._products[index].amount += 1;
-}
+};
 
 let currentCart;
 
@@ -43,7 +50,6 @@ Cart.prototype.contains = function (productId) {
 
 export const addCartListeners = (products) => {
     const moreButtons = document.querySelectorAll('.home__more');
-    console.log('Products: ', products);
 
     const addToChart = (event) => {
         const element = new Object();
@@ -55,7 +61,6 @@ export const addCartListeners = (products) => {
                 return false;
             }
         });
-        console.log('Product: ', product);
         element.picURL = product.picURL;
         element.SN = product.SN;
         element.PN = product.PN;
@@ -77,7 +82,7 @@ export const addCartListeners = (products) => {
     });
 };
 
-const printCart = (event) => {
+export const printCart = (event) => {
     event.preventDefault();
     if (currentCart == undefined){
         window.alert('Cart is empty');
@@ -99,7 +104,14 @@ const printCart = (event) => {
 };
 
 
-const cartButton = document.querySelector('.o-car');
+export const cartUpdate = (event) => {
+    if (event.key == 'cart'){
+        currentCart = JSON.parse(localStorage.getItem('cart'));
+        Object.setPrototypeOf(currentCart, Cart.prototype);
+        console.log('Storage event. Updated cart:', currentCart);
+        console.log('Storage event:', event);
+    }
+};
 
-cartButton.addEventListener("click", printCart);
+
 

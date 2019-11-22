@@ -24,13 +24,13 @@ export const renderProd = (template, wrapperTemplate, cardTemplate, products) =>
             supplierName = element.querySelector(".card__sup"),
             productName = element.querySelector(".card__prod"),
             price = element.querySelector(".card__price"),
-            moreButton = document.querySelector('.home__more');
+            moreButton = element.querySelector('.home__more');
         if (type == "big") productImage.classList.add("home-image_big");
         if (type == "default") productImage.classList.add("home-image_small");
         productImage.setAttribute("src",`assets/${placeToAdd.picURL}`);
         supplierName.innerText = `${placeToAdd.SN}`;
         productName.innerText = `${placeToAdd.PN}`;
-        moreButton.setAttribute('data-id',`${placeToAdd.id}`);
+        moreButton.dataset.id = `${placeToAdd.id}`;
         price.innerText = `${placeToAdd.Price}`;
         products.splice(products.indexOf(placeToAdd),1);
     };

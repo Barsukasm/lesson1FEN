@@ -1,10 +1,9 @@
 import {renderMenus} from './menuRenderer.js';
 import { getData } from './requestData.js';
 import {renderProd} from './renderProducts.js';
+import {addCartListeners} from "./cart.js";
 
-const url = 'http://localhost:3000/api/menuContent.json';
 
-const menus = document.querySelectorAll(".c-navbar__item");
 
 const showMenu = function (event) {
 	const menuObj = event.target.querySelector(".menu").classList;
@@ -17,7 +16,7 @@ const hideMenu = function (event) {
 };
 
 
-const hoverMenu = (menus, menuContent) => {
+export const hoverMenu = (menus, menuContent) => {
 	let shift = 0, indexMenus = 0;
 
 	menus.forEach(element => {
@@ -28,7 +27,7 @@ const hoverMenu = (menus, menuContent) => {
 	});
 };
 
-const toIndexHtml = (event) =>{
+export const toIndexHtml = (event) =>{
 	history.pushState(null,null,'/');
 	const homeDataUrl = 'http://localhost:3000/api/products.json';
 	getData(homeDataUrl,(products) => {
@@ -37,10 +36,6 @@ const toIndexHtml = (event) =>{
 		renderProd(template,wrapperTemplate, "home__card",[...products]);
 		addCartListeners(products);
 	} );
+	console.log('Event "toIndexHtml" fired!');
 };
 
-document.querySelector('.o-logo').addEventListener('click',toIndexHtml);
-
-getData(url, (menuContent) =>{
-	hoverMenu(menus, menuContent);
-});
