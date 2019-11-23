@@ -1,3 +1,7 @@
+import {renderCart} from './cartRenderer.js';
+const cartTemplate = document.querySelector('.cart-wrapper-template'),
+    user = "user-placeholder";
+
 export class Cart {
     constructor(user){
         this._user = user;
@@ -5,8 +9,6 @@ export class Cart {
         localStorage.setItem('cart', JSON.stringify(this));
     };  
 }
-
-const user = "user-placeholder";
 
 Cart.prototype.add = function (product) {
     this._products.push(product);
@@ -32,9 +34,8 @@ Cart.prototype.sum = function () {
 
 Cart.prototype.incrimentAmount = function (index) {
     this._products[index].amount += 1;
+    localStorage.setItem('cart',JSON.stringify(this));
 };
-
-let currentCart;
 
 Cart.prototype.contains = function (productId) {
     return this._products.findIndex((element)=>{
@@ -66,8 +67,11 @@ export const addCartListeners = (products) => {
         element.PN = product.PN;
         element.Price = product.Price;
         element.amount = 1;
-        if (currentCart == undefined){
+        let currentCart = JSON.parse(localStorage.getItem('cart'));
+        if (currentCart == null){
             currentCart = new Cart(user);
+        } else {
+            Object.setPrototypeOf(currentCart, Cart.prototype);
         }
         const checkIfCont = currentCart.contains(element.id);
         if (checkIfCont == -1){
@@ -82,34 +86,20 @@ export const addCartListeners = (products) => {
     });
 };
 
+
+
 export const printCart = (event) => {
     event.preventDefault();
-    if (currentCart == undefined){
-        window.alert('Cart is empty');
-    } else {
-        const msg = [];
-        currentCart.get().forEach((product)=>{
-            console.log('form alert msg', product);
-            msg.push(`
-            Item pic: ${product.picURL}\n
-            Supplier’s Name: ${product.SN}\n
-            Product Name: ${product.PN}\n
-            Price: ${product.Price}\n
-            Amount: ${product.amount}\n
-            Id: ${product.id}
-            `);
-        });
-        console.log('Msg string: ', msg.join('\n==========================\n'), '\nSum: ', currentCart.sum());
-    }
+    history.pushState(null,null,`/#Cart`);
+    renderCart(cartTemplate);
 };
+
 
 
 export const cartUpdate = (event) => {
     if (event.key == 'cart'){
         currentCart = JSON.parse(localStorage.getItem('cart'));
         Object.setPrototypeOf(currentCart, Cart.prototype);
-        console.log('Storage event. Updated cart:', currentCart);
-        console.log('Storage event:', event);
     }
 };
 

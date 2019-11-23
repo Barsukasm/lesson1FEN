@@ -1,0 +1,152 @@
+.wrapper-pay{
+	width: 61.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2rem auto 0;
+}
+
+.operations{
+	width: 60.75rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+
+
+.operation-card_right::before{	
+	left: 45.5rem;
+}
+
+
+.oper{
+	text-decoration: none;
+	font-size: 14px;
+	letter-spacing: 0.28px;
+	color: #878786;
+}
+
+.label-p-method{
+	margin-left: 22px;
+	font-size: 14px;
+	letter-spacing: 0.28px;
+	color: #000000;
+}
+
+.o-radio:checked ~ .label-p-method{
+	color: #8bc34a;	
+}
+
+.current{
+	color: #8bc34a;	
+}
+
+.ship-a__last-row{
+	margin: 1rem auto;
+	margin-top: auto;
+	width: 96%;
+}
+
+.o-button-left{
+	float: left;
+}
+
+.o-button-right{
+	float: right;
+}
+
+.operation-card__divider{
+	width: 1px;
+	height: 29rem;
+	background-color: #c8c8c8;
+	margin: 1rem 1.5rem;
+}
+
+
+.operation-card__main{
+	margin: 1rem 0;
+	width: 96%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.operation-card__cart{
+	margin: 1rem 0;
+	width: 56%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.operation-card__payment-detail{
+	width: 37%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: space-between; 
+}
+
+.payment-field{
+	margin: 1rem 0;
+	width: 100%;
+}
+
+.payment-row{	
+	margin: 1rem 0;
+	width: 100%;
+}
+
+.payment-row__field{
+	width: 45%;
+}
+
+.payment-row::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.o-pay-button{
+	width: 21.25rem;
+}
+
+.o-detail__item__payment{
+	width: 68.1px;
+	height: 50px;
+}
+
+
+.o-item-info{
+	margin: 20px 10px;
+}
+
+.operation-card__cart-heading{
+	font-size: 14px;
+	letter-spacing: 0.28px;
+	color: #8bc34a;
+	margin-left: 1.1rem;
+}
+
+.sum-field__p{
+	font-size: 14px;
+	line-height: 1.29;
+	letter-spacing: 0.28px;
+	color: #878786;
+}
+
+.sum-field__span{
+	font-size: 14px;
+	line-height: 1.29;
+	text-align: right;
+	color: #878786;
+}
+
+.no-border{
+	border: none;
+}

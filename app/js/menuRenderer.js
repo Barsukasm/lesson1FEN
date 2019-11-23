@@ -8,7 +8,8 @@ const travel = (event) => {
     event.preventDefault();
     history.pushState(null,null,`/#${event.target.innerText}`);
     const subcatUrl = `http://localhost:3000/api/${event.target.innerText}Content.json`;
-    getData(subcatUrl,(products)=>{
+	getData(subcatUrl)
+	.then((products)=>{
         const template = document.querySelector(".template-category-card");
         const wrapperTemplate = document.querySelector('.template-category');
         console.log(event.target.innerText, "menu", products);

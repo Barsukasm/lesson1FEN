@@ -30,12 +30,16 @@ export const hoverMenu = (menus, menuContent) => {
 export const toIndexHtml = (event) =>{
 	history.pushState(null,null,'/');
 	const homeDataUrl = 'http://localhost:3000/api/products.json';
-	getData(homeDataUrl,(products) => {
+	getData(homeDataUrl)
+	.then((products) => {
 		const template = document.querySelector(".product-card");
 		const wrapperTemplate = document.querySelector('.home-wrapper-template');
 		renderProd(template,wrapperTemplate, "home__card",[...products]);
 		addCartListeners(products);
-	} );
-	console.log('Event "toIndexHtml" fired!');
+		console.log('Event "toIndexHtml" fired!');
+	})
+	.catch(error=>{
+		console.log('Error in "toIndexHtml" event', error);
+	});
 };
 

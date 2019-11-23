@@ -1,6 +1,6 @@
 .wrapper-cart{
 	width: 80.1rem;
-	margin: 0 auto;
+	margin: 2rem auto 0;
 }
 
 .cart{
@@ -13,7 +13,7 @@
 }
 
 
-.wrapper::after{
+.wrapper-cart::after{
 	content: "";
 	display:block;
 	clear: both;
@@ -77,7 +77,7 @@
 }
 
 .o-total-amount__sum{
-	font-size: 30px;
+	font-size: 28px;
 	margin: 2rem 2rem 0 2rem;
 	font-weight: bold;
 	text-align: right;
@@ -113,4 +113,9 @@
 	content: "";
 	display:block;
 	clear: both;
+}
+
+.o-detail-image{
+	width: 100%;
+	height: 100%;
 }

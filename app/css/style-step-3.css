@@ -1,0 +1,31 @@
+.wrapper-congrats{
+	width: 80.1rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.congrats{
+	margin: 10rem 0;
+}
+
+.congrats__head{
+	font-size: 50px;
+	text-align: center;
+	color: #8bc34a;
+}
+
+.congrats__suc{
+	font-size: 20px;
+	line-height: 0.46;
+	text-align: center;
+	color: #282828;
+	margin-top: 1rem;
+}
+
+.o-back-button{
+	width: 15rem;
+	text-transform: uppercase;
+}

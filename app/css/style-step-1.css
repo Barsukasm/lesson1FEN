@@ -1,0 +1,109 @@
+.wrapper-pay{
+	width: 61.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2rem auto 0;
+}
+
+.operations{
+	width: 60.75rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+
+
+.oper{
+	text-decoration: none;
+	font-size: 14px;
+	letter-spacing: 0.28px;
+	color: #878786;
+}
+
+.current{
+	color: #8bc34a;	
+}
+
+.ship-a__row{
+	width: 94%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: 1rem 0;
+}
+
+.ship-a__last-row{
+	margin: 1rem auto;
+	margin-top: auto;
+	width: 94%;
+}
+
+.o-button-left{
+	float: left;
+}
+
+.o-button-right{
+	float: right;
+}
+
+.ship-a__last-row::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.ship-a__field-checkboxes{
+	width: 18.125rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.o-label__text{
+	margin-left: 1.5rem;
+	font-size: 14px;
+	line-height: 0.64;
+	color: #cbcbcb;
+}
+
+.ship-a__field{
+	width: 18.125rem;
+}
+
+.ship-a__field-2{
+	width: 100%;
+}
+
+.req-field{
+	width: 100%;
+}
+
+.req-field::after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.req-field__p{
+	float: left;
+}
+
+.req-field__span{
+	float: right;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 2.2;
+	text-align: right;
+	color: #ea5c37;
+}
+
+.ship-a__p{
+	font-size: 14px;
+	letter-spacing: 0.28px;
+	color: #000000;
+}

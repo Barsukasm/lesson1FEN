@@ -4,6 +4,13 @@ export const renderProd = (template, wrapperTemplate, cardTemplate, products) =>
     const outerWrapper = document.querySelector('.outer-wrapper'),
         initialProductsLength = products.length;
 
+    if(outerWrapper.querySelector('.wrapper-cart')!=null){
+        outerWrapper.removeChild(outerWrapper.querySelector('.wrapper-cart'));
+    }
+    if(outerWrapper.querySelector('.wrapper-pay')!=null){
+        outerWrapper.removeChild(outerWrapper.querySelector('.wrapper-pay'));
+    }
+
     if (outerWrapper.querySelector('.wrapper') == null){
         outerWrapper.appendChild(document.importNode(wrapperTemplate.content,true));
     } else {

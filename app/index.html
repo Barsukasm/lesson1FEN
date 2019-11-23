@@ -6,6 +6,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style-home.css">
 	<link rel="stylesheet" type="text/css" href="css/style-category.css">
 	<link rel="stylesheet" type="text/css" href="css/style-cart.css">
+	<link rel="stylesheet" type="text/css" href="css/style-step-1.css">
+	<link rel="stylesheet" type="text/css" href="css/style-step-2.css">
+	<link rel="stylesheet" type="text/css" href="css/style-step-3.css">
 </head>
 
 <body>
@@ -339,7 +342,7 @@
 
 	<!-- Cart template-->
 	<template class="cart-wrapper-template">
-		<div class="wrapper">
+		<div class="wrapper-cart">
 			<div class="cart">
 				<!-- table -->
 				<table class="c-cart-table">
@@ -363,11 +366,11 @@
 				
 					<div class="c-to-checkout">
 						<div class="c-to-checkout__o-sum">
-							<p class="c-resulting-sum"><span class="o-subtotal">Subtotal</span><span class="o-subtotal__sum">$145.84</span></p>
-							<p class="c-resulting-sum"><span class="o-subtotal">Shipping</span><span class="o-subtotal__sum">$5.00</span></p>
+							<p class="c-resulting-sum"><span class="o-subtotal">Subtotal</span><span class="o-subtotal__sum"></span></p>
+							<p class="c-resulting-sum"><span class="o-subtotal">Shipping</span><span class="o-subtotal__sum"></span></p>
 						</div>
 						<div class="c-to-checkout__process">
-							<p class="o-total-amount">Total Amount <span class="o-total-amount__sum">$254.84</span></p>
+							<p class="o-total-amount">Total Amount <span class="o-total-amount__sum"></span></p>
 							<button class="o-button o-checkout-button">PROCESS TO CHECKOUT</button>
 						</div>
 					</div>
@@ -387,25 +390,181 @@
 			<td class="o-detail">
 				<div>
 					<div class="o-detail__item">
-						<img src="assets/bitmap.jpg">
+						<img class="o-detail-image" src="">
 					</div>				
 					<div class="o-item-info">
-						<p class="o-product">Product Name Here</p>
-						<p class="o-supplier">Supplier’s Name Here</p>
+						<p class="o-product"></p>
+						<p class="o-supplier"></p>
 					</div>
 				</div>
 			</td>
-			<td class="o-price o-price_row">$28.99</td>
+			<td class="o-price o-price_row"></td>
 			<td class="o-qty">
-				<input type="text" value="1" class="o-input o-qty__input">
+				<input type="text" value="0" class="o-input o-qty__input">
 			</td>
-			<td class="o-sum">$28.99</td>
-		  </tr>
+			<td class="o-sum"></td>
+		</tr>
 	</template>
 	
+	<!-- Shipping template -->
+	<template class="template-shipping">
+		<div class="wrapper-pay">
+			<div class="operations">
+				<a href="" class="oper current">Shipping Address</a>
+				<a href="" class="oper">Payment</a>
+			</div>
+			<div class="operation-card">
+				<div class="ship-a__row">
+					<div class="ship-a__field">
+						<p class="ship-a__p">First Name*</p>
+						<input type="text" class="o-input" placeholder="Jhone">
+					</div>
+					<div class="ship-a__field">
+						<p class="ship-a__p">Last Name*</p>
+						<input type="text" class="o-input" placeholder="Smith">
+					</div>
+					<div class="ship-a__field">
+						<p class="ship-a__p">Company Name</p>
+						<input type="text" class="o-input" placeholder="Rosuson Industries">
+					</div>
+				</div>
+				<div class="ship-a__row">
+					<div class="ship-a__field">
+						<p class="ship-a__p o-input-select">Country*</p>
+						<input type="text" class="o-input" placeholder="United Kingdom (UK)">
+					</div>
+					<div class="ship-a__field">
+						<p class="ship-a__p">Town / City*</p>
+						<input type="text" class="o-input" placeholder="eg. New york">
+					</div>
+					<div class="ship-a__field">
+						<p class="ship-a__p">Postcode*</p>
+						<input type="text" class="o-input" placeholder="eg. 358745">
+					</div>
+				</div>
+				<div class="ship-a__row">
+					<div class="ship-a__field-2">
+						<div class="req-field"><p class="req-field__p ship-a__p">Address*</p><span class="req-field__span">*Required</span></div>
+						<input type="text" class="o-input" placeholder="eg. 2nd steer, Costrica, Uk 354548">
+					</div>
+				</div>
+				<div class="ship-a__row">
+					<div class="ship-a__field">
+						<p class="ship-a__p">Email Address*</p>
+						<input type="text" class="o-input" placeholder="abc@xyz.com">
+					</div>
+					<div class="ship-a__field">
+						<p class="ship-a__p">Phone</p>
+						<input type="text" class="o-input" placeholder="eg. 94 788 1221">
+					</div>
+					<div class="ship-a__field-checkboxes">
+						<label class="o-label">
+							<input type="checkbox" class="o-checkbox">
+							<span class="checkmark-box"></span>	
+							<span class="o-label__text">Create an Account?</span>					
+						</label>
+						<label class="o-label">
+							<input type="checkbox" class="o-checkbox" checked>
+							<span class="checkmark-box"></span>
+							<span class="o-label__text">Create an Account?</span>						
+						</label>
+					</div>
+				</div>
+				<div class="ship-a__last-row">
+					<button class="o-button o-button-cancel o-button-left">Back</button>
+					<button class="o-button o-button-right">Next</button>
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</template>
+	<!-- Payment template -->
+	<template class="template-payment">
+		<div class="wrapper-pay">
+			<div class="operations">
+				<a href="" class="oper">Shipping Address</a>
+				<a href="" class="oper current">Payment</a>
+			</div>
+			<div class="operation-card operation-card_right">
+				<div class="operation-card__main">
+					<div class="operation-card__cart">
+						<p class="operation-card__cart-heading">Your Order</p>
+						<table class="c-cart-table">
+							
+							
+						</table>
+					</div>
+					<div class="operation-card__divider"></div>	
+					<div class="operation-card__payment-detail">
+						<div class="payment-field">	
+							<label class="o-label">
+								<input type="radio" class="o-radio" name="payment-method" checked>
+								<span class="checkmark"></span>	
+								<span class="label-p-method">Credit Card / Debit Card</span>					
+							</label>
+						</div>
+						<div class="payment-field">
+							<p class="payment-field__p">Name on Card</p>
+							<input type="text" class="o-input" placeholder="Daniel Hecker">
+						</div>
+						<div class="payment-field">
+							<p class="payment-field__p">Card Number</p>
+							<input type="text" class="o-input" placeholder="4121 4411 1414 9754">
+						</div>
+						<div class="payment-row">
+							<div class="payment-row__field o-button-left">
+								<p class="payment-field__p">Valid Trough</p>
+								<input type="text" class="o-input" placeholder="MM / DD">
+							</div>
+							<div class="payment-row__field o-button-right">
+								<p class="payment-field__p">CVV</p>
+								<input type="text" class="o-input" placeholder="eg. 201">
+							</div>
+						</div>
+
+						<div class="payment-field">
+							<label class="o-label">
+								<input type="radio" class="o-radio" name="payment-method">
+								<span class="checkmark"></span>	
+								<span class="label-p-method">Paypal</span>					
+							</label>
+						</div>
+						<div class="payment-field">
+							<p class="payment-field__p">Email Address</p>
+							<input type="text" class="o-input" placeholder="abc@xyz.com">
+						</div>
+					</div>				
+				</div>
+				<div class="ship-a__last-row">
+					<button class="o-button o-button-cancel o-button-left">Back</button>
+					<button class="o-button o-button-right o-pay-button">Pay $254.84</button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!-- minified cart row -->
+	<template class="template-cart-mini">
+		<tr>
+			<td class="o-detail">
+				<div>
+					<div class="o-detail__item o-detail__item__payment">
+						<img src="" class="o-detail-image">
+					</div>				
+					<div class="o-item-info">
+						<p class="o-supplier"></p>
+					</div>
+				</div>
+			</td>
+			<td class="o-qty">
+				<input type="text" value="0" class="o-input o-qty__input">
+			</td>
+			<td class="o-sum"></td>
+		</tr>
+	</template>
 
 	<script type="module" src="js/URLWatch.js"></script>
-	<!--<script type="module" src="js/task1.js"></script>-->
 </body>
 
 </html>
