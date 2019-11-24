@@ -65,6 +65,8 @@ export const renderCart = (wrapperTemplate) => {
                 console.log('Product: ', product, 'Row: ', row);
                 renderRow(row, product);
             });
+            const payButton = document.querySelector('.o-pay-button');
+            payButton.innerText = `Pay $${curCart.sum()}`;
         }
     }
 

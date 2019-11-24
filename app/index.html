@@ -376,7 +376,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="o-ads">
+			<div class="o-side-pic">
 				<img src="assets/ad.jpg">
 			</div>
 		</div>
@@ -471,8 +471,8 @@
 					</div>
 				</div>
 				<div class="ship-a__last-row">
-					<button class="o-button o-button-cancel o-button-left">Back</button>
-					<button class="o-button o-button-right">Next</button>
+					<button class="o-button o-button-cancel o-button-left o-to-cart">Back</button>
+					<button class="o-button o-button-right o-to-payment">Next</button>
 				</div>
 			</div>
 		</div>
@@ -537,8 +537,8 @@
 					</div>				
 				</div>
 				<div class="ship-a__last-row">
-					<button class="o-button o-button-cancel o-button-left">Back</button>
-					<button class="o-button o-button-right o-pay-button">Pay $254.84</button>
+					<button class="o-button o-button-cancel o-button-left o-to-ship">Back</button>
+					<button class="o-button o-button-right o-pay-button">Pay</button>
 				</div>
 			</div>
 		</div>
@@ -565,6 +565,19 @@
 	</template>
 
 	<script type="module" src="js/URLWatch.js"></script>
+
+	<!-- Congrats template -->
+	<template class="template-congrats">
+		<div class="wrapper-pay">
+			<div class="congrats">
+				<p class="congrats__head">Congratulations</p>
+				<p class="congrats__suc">Order Placed Successfully!</p>
+			</div>
+			<div class="back-to-shopping">
+				<button class="o-button o-back-button">Back to Shopping</button>
+			</div>
+		</div>
+	</template>
 </body>
 
 </html>

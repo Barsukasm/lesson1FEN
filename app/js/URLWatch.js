@@ -3,7 +3,7 @@ import {getData} from "./requestData.js";
 import {addCartListeners, cartUpdate, printCart} from './cart.js';
 import {renderCart} from './cartRenderer.js';
 import {hoverMenu, toIndexHtml} from "./menu.js";
-import {shippingTemplate, paymentTemplate, renderPayment} from './paymentRenderer.js';
+import {shippingTemplate, paymentTemplate, renderPayment,congratsTemplate} from './paymentRenderer.js';
 
 const cartTemplate = document.querySelector('.cart-wrapper-template');
 
@@ -11,6 +11,7 @@ const HOSTNAME = 'http://localhost:3000/';
 const CARTURL = 'http://localhost:3000/#Cart';
 const SHIPURL = 'http://localhost:3000/#Shipping';
 const PAYTURL = 'http://localhost:3000/#Payment';
+const FINISHED = 'http://localhost:3000/#Finished';
 
 const requestContent = (url) => {
     getData(url)
@@ -19,8 +20,6 @@ const requestContent = (url) => {
         const wrapperTemplate = document.querySelector('.home-wrapper-template');
         renderProd(template, wrapperTemplate, "home__card",[...products]);
         addCartListeners(products);
-        const cartButton = document.querySelector('.o-car');
-        cartButton.addEventListener("click", printCart);
     })
     .catch(error=>{
         console.log('Error in home render: ', error);
@@ -47,6 +46,10 @@ const rerenderContent = () =>{
             renderPayment(paymentTemplate);
             break;
         }
+        case FINISHED:{
+            renderPayment(congratsTemplate);
+            break;
+        }
         default:{
             const urlParse = location.href.split('/'),
                 categoryName = urlParse[urlParse.length-1].slice(1);
@@ -57,6 +60,8 @@ const rerenderContent = () =>{
     }
 };
 
+window.addEventListener('storage',cartUpdate,false);
+
 window.onload = () => {
     const urlMenu = 'http://localhost:3000/api/menuContent.json';
 
@@ -64,7 +69,8 @@ window.onload = () => {
 
     const menus = document.querySelectorAll(".c-navbar__item");
 
-    window.addEventListener('storage',cartUpdate,false);
+    const cartButton = document.querySelector('.o-car');
+    cartButton.addEventListener("click", printCart);
 
     getData(urlMenu)
     .then((menuContent) =>{

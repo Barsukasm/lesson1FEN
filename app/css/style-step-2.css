@@ -73,6 +73,7 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: space-between;
+	height: 34rem;
 }
 
 .operation-card__cart{
@@ -82,6 +83,13 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
+	height: 30rem;
+	overflow-y: auto;
+	scrollbar-width: none;
+}
+
+.operation-card__cart::-webkit-scrollbar {
+	display: none;
 }
 
 .operation-card__payment-detail{

@@ -1,6 +1,7 @@
 import {renderCart} from './cartRenderer.js';
 const cartTemplate = document.querySelector('.cart-wrapper-template'),
     user = "user-placeholder";
+let currentCart;
 
 export class Cart {
     constructor(user){
@@ -32,7 +33,7 @@ Cart.prototype.sum = function () {
     },0);
 };
 
-Cart.prototype.incrimentAmount = function (index) {
+Cart.prototype.incrementAmount = function (index) {
     this._products[index].amount += 1;
     localStorage.setItem('cart',JSON.stringify(this));
 };
@@ -67,17 +68,19 @@ export const addCartListeners = (products) => {
         element.PN = product.PN;
         element.Price = product.Price;
         element.amount = 1;
-        let currentCart = JSON.parse(localStorage.getItem('cart'));
-        if (currentCart == null){
-            currentCart = new Cart(user);
-        } else {
-            Object.setPrototypeOf(currentCart, Cart.prototype);
+        if (currentCart == undefined){
+            currentCart = JSON.parse(localStorage.getItem('cart'));
+            if (currentCart==null) {
+                currentCart = new Cart(user);
+            } else {
+                Object.setPrototypeOf(currentCart, Cart.prototype);
+            }
         }
         const checkIfCont = currentCart.contains(element.id);
         if (checkIfCont == -1){
             currentCart.add(element);
         } else {
-            currentCart.incrimentAmount(checkIfCont);
+            currentCart.incrementAmount(checkIfCont);
         }
     };
 
