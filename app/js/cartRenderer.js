@@ -6,7 +6,8 @@ export const renderCart = (wrapperTemplate) => {
     Object.setPrototypeOf(curCart, Cart.prototype);
 
     const renderRow = (row, product) => {
-        const rowImage = row.querySelector('.o-detail-image'),
+        const deleteItem = row.querySelector('.o-remove-item'),
+            rowImage = row.querySelector('.o-detail-image'),
             rowPN = row.querySelector('.o-product'),
             rowSN =  row.querySelector('.o-supplier'),
             rowPrice = row.querySelector('.o-price'),
@@ -17,8 +18,15 @@ export const renderCart = (wrapperTemplate) => {
         if (rowPN!=null) rowPN.innerText = product.SN;
         if (rowSN!=null) rowSN.innerText = product.PN;
         if (rowPrice!=null) rowPrice.innerText = product.Price;
-        if (rowQTY!=null) rowQTY.value = product.amount;
+        if (rowQTY!=null) {
+            rowQTY.value = product.amount;
+            rowQTY.addEventListener('change', event => curCart.setAmount(product.id,rowQTY.value));
+        }
         if (rowSum!=null) rowSum.innerText = product.amount*price;
+        if (deleteItem!=null) deleteItem.addEventListener('click', (event) => {
+            curCart.remove(product.id);
+            renderCart(wrapperTemplate);
+        });
     };
 
     if (wrapperTemplate!="mini"){

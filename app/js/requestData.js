@@ -19,3 +19,16 @@ export const getData = (url) => {
     
     
 };
+
+export const proceedPaymentInfo = () =>{
+    const timeout = 6000;
+    return new Promise((resolve,reject) => {
+        if (timeout>=0){
+            setTimeout(()=>{
+                resolve('successful');
+            },timeout);
+        } else {
+            reject('error in proceedPaymentInfo');
+        }
+    });
+};
