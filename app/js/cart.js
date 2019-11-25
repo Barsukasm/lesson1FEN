@@ -1,4 +1,5 @@
 import {renderCart} from './cartRenderer.js';
+import {SHIPURL, PAYTURL} from "./URLWatch.js";
 const cartTemplate = document.querySelector('.cart-wrapper-template'),
     user = "user-placeholder";
 let currentCart;

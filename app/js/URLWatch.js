@@ -4,14 +4,15 @@ import {addCartListeners, cartUpdate, printCart} from './cart.js';
 import {renderCart} from './cartRenderer.js';
 import {hoverMenu, toIndexHtml} from "./menu.js";
 import {shippingTemplate, paymentTemplate, renderPayment,congratsTemplate} from './paymentRenderer.js';
+import {toFav} from "./fav.js";
 
 const cartTemplate = document.querySelector('.cart-wrapper-template');
 
-const HOSTNAME = 'http://localhost:3000/';
-const CARTURL = 'http://localhost:3000/#Cart';
-const SHIPURL = 'http://localhost:3000/#Shipping';
-const PAYTURL = 'http://localhost:3000/#Payment';
-const FINISHED = 'http://localhost:3000/#Finished';
+export const HOSTNAME = 'http://localhost:3000/',
+    CARTURL = 'http://localhost:3000/#Cart',
+    SHIPURL = 'http://localhost:3000/#Shipping',
+    PAYTURL = 'http://localhost:3000/#Payment',
+    FINISHED = 'http://localhost:3000/#Finished';
 
 const requestContent = (url) => {
     getData(url)
@@ -70,7 +71,16 @@ window.onload = () => {
     const menus = document.querySelectorAll(".c-navbar__item");
 
     const cartButton = document.querySelector('.o-car');
-    cartButton.addEventListener("click", printCart);
+    cartButton.addEventListener("click", (event)=>{
+        event.preventDefault();
+        if (location.href != SHIPURL && location.href != PAYTURL){
+            history.pushState(null,null,`/#Cart`);
+            renderCart(cartTemplate);
+        }
+    });
+
+    const favButton = document.querySelector('.o-fav');
+    favButton.addEventListener("click", toFav);
 
     getData(urlMenu)
     .then((menuContent) =>{

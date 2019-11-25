@@ -83,12 +83,15 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
-	height: 30rem;
+}
+
+.operation-card__wrapper{
+	height: 28rem;
 	overflow-y: auto;
 	scrollbar-width: none;
 }
 
-.operation-card__cart::-webkit-scrollbar {
+.operation-card__wrapper::-webkit-scrollbar {
 	display: none;
 }
 

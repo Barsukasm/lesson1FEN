@@ -28,8 +28,10 @@ export const renderPayment = (wrapperTemplate) => {
     }
 
     if (document.querySelectorAll('.oper').length!=0){
-        document.querySelectorAll('.oper')[0].setAttribute('href',`${location.origin}/#Shipping`);
-        document.querySelectorAll('.oper')[1].setAttribute('href',`${location.origin}/#Payment`);
+        document.querySelectorAll('.oper')[0].addEventListener('click',saveShippingInfo);
+        document.querySelectorAll('.oper')[0].addEventListener('click',toCheckOut);
+        document.querySelectorAll('.oper')[1].addEventListener('click',saveShippingInfo);
+        document.querySelectorAll('.oper')[1].addEventListener('click',toPayment);
     }
 
 
