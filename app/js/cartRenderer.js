@@ -85,7 +85,6 @@ export const renderCart = (wrapperTemplate) => {
                 cartTable.appendChild(document.importNode(rowTemplate.content,true));
                 const rows = cartTable.querySelectorAll('tr');
                 const row = rows[rows.length-1];
-                console.log('Product: ', product, 'Row: ', row);
                 renderRow(row, product);
             });
             const payButton = document.querySelector('.o-pay-button');

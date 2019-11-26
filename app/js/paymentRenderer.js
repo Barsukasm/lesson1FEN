@@ -70,7 +70,6 @@ export const renderPayment = (wrapperTemplate) => {
         proceedPaymentInfo()
         .then(result => {
             hideAnimation();
-            console.log('Payment info proceeding: ', result);
             render();
         });
     } else {
