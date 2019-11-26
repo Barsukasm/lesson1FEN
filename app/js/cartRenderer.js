@@ -1,9 +1,10 @@
-import {Cart} from "./cart.js";
+import {Cart, smallCartUpdate} from "./cart.js";
 import {toCheckOut} from './paymentRenderer.js';
+import {getShippingPrice} from "./requestData.js";
 
 export const renderCart = (wrapperTemplate) => {
     const curCart = JSON.parse(localStorage.getItem('cart'));
-    Object.setPrototypeOf(curCart, Cart.prototype);
+    if (curCart!=null) Object.setPrototypeOf(curCart, Cart.prototype);
 
     const renderRow = (row, product) => {
         const deleteItem = row.querySelector('.o-remove-item'),
@@ -20,12 +21,16 @@ export const renderCart = (wrapperTemplate) => {
         if (rowPrice!=null) rowPrice.innerText = product.Price;
         if (rowQTY!=null) {
             rowQTY.value = product.amount;
-            rowQTY.addEventListener('change', event => curCart.setAmount(product.id,rowQTY.value));
+            rowQTY.addEventListener('input', event => {
+                curCart.setAmount(product.id,rowQTY.value);
+                smallCartUpdate();
+            });
         }
         if (rowSum!=null) rowSum.innerText = product.amount*price;
         if (deleteItem!=null) deleteItem.addEventListener('click', (event) => {
             curCart.remove(product.id);
             renderCart(wrapperTemplate);
+            smallCartUpdate();
         });
     };
 
@@ -50,18 +55,21 @@ export const renderCart = (wrapperTemplate) => {
         const rowTemplate = document.querySelector('.cart-row-template');
 
         const cartTable = document.querySelector('.c-cart-table');
-        if (curCart!=null){
+        if (curCart!=null&&curCart.totalAmount()>0){
             curCart._products.forEach((product)=>{
                 cartTable.appendChild(document.importNode(rowTemplate.content,true));
                 const rows = cartTable.querySelectorAll('tr');
                 const row = rows[rows.length-1];
-                console.log('Product: ', product, 'Row: ', row);
                 renderRow(row, product);
             });
         }
         
         document.querySelector('.o-checkout-button').addEventListener('click', toCheckOut);
-        document.querySelector('.o-total-amount__sum').innerText = `$${curCart.sum()}`;
+        const subtotal = document.querySelectorAll('.c-resulting-sum')[0].querySelector('.o-subtotal__sum');
+        const shipping = document.querySelectorAll('.c-resulting-sum')[1].querySelector('.o-subtotal__sum');
+        subtotal.innerText = `$${(curCart!=null)?curCart.sum():0}`;
+        shipping.innerText = `$${getShippingPrice()}`;
+        document.querySelector('.o-total-amount__sum').innerText = `$${(curCart!=null)?curCart.fullPrice(getShippingPrice()):0}`;
     } else if (wrapperTemplate == "mini") {
         const rowTemplate = document.querySelector('.template-cart-mini');
         const cartTable = document.querySelector('.c-cart-table');
@@ -74,7 +82,7 @@ export const renderCart = (wrapperTemplate) => {
                 renderRow(row, product);
             });
             const payButton = document.querySelector('.o-pay-button');
-            payButton.innerText = `Pay $${curCart.sum()}`;
+            payButton.innerText = `Pay $${curCart.fullPrice(getShippingPrice())}`;
         }
     }
 

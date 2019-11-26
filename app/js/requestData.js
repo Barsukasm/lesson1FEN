@@ -1,6 +1,11 @@
+import {genIndex} from "./renderProducts.js";
+
 const STATUS = {
     OK: 200,
 };
+
+const TIMEOUT = 6000,
+    SHIPPINGCOST = 5+genIndex(5);
 
 export const getData = (url) => {
 
@@ -21,14 +26,17 @@ export const getData = (url) => {
 };
 
 export const proceedPaymentInfo = () =>{
-    const timeout = 6000;
     return new Promise((resolve,reject) => {
-        if (timeout>=0){
+        if (TIMEOUT>=0){
             setTimeout(()=>{
                 resolve('successful');
-            },timeout);
+            },TIMEOUT);
         } else {
             reject('error in proceedPaymentInfo');
         }
     });
+};
+
+export const getShippingPrice = () => {
+    return SHIPPINGCOST;
 };

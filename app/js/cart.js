@@ -1,8 +1,9 @@
 import {renderCart} from './cartRenderer.js';
-import {SHIPURL, PAYTURL} from "./URLWatch.js";
+import {PAYTURL, CARTURL} from "./URLWatch.js";
+import {paymentTemplate, renderPayment} from "./paymentRenderer.js";
 const cartTemplate = document.querySelector('.cart-wrapper-template'),
     user = "user-placeholder";
-let currentCart;
+
 
 export class Cart {
     constructor(user){
@@ -34,6 +35,10 @@ Cart.prototype.sum = function () {
     },0);
 };
 
+Cart.prototype.fullPrice = function(ship){
+    return this.sum() + ship;
+};
+
 Cart.prototype.incrementAmount = function (index) {
     this._products[index].amount += 1;
     localStorage.setItem('cart',JSON.stringify(this));
@@ -56,7 +61,41 @@ Cart.prototype.setAmount = function (id, amount) {
         }
     });
     localStorage.setItem('cart',JSON.stringify(this));
-}
+};
+
+Cart.prototype.totalAmount = function () {
+    return this._products.reduce((acc,cur)=>{
+        return  acc + parseInt(cur.amount);
+    },0);
+};
+
+export const smallCartUpdate = () =>{
+    const curCart = JSON.parse(localStorage.getItem('cart'));
+    const cartButton = document.querySelector('.o-car');
+    if (curCart!=null) {
+        Object.setPrototypeOf(curCart, Cart.prototype);
+        if (cartButton.querySelector('.o-popup')==null){
+            const popup = document.createElement('div');
+            popup.classList.add('o-popup');
+            if(curCart.totalAmount()>0){
+                popup.innerText = curCart.totalAmount();
+                cartButton.appendChild(popup);
+            }
+        } else{
+            const popup = cartButton.querySelector('.o-popup');
+            if(curCart.totalAmount()>0){
+                popup.innerText = curCart.totalAmount();
+            } else {
+                cartButton.removeChild(popup);
+            }
+        }
+    } else {
+        const popup = cartButton.querySelector('.o-popup');
+        if (popup!=null){
+            cartButton.removeChild(popup);
+        }
+    }
+};
 
 export const addCartListeners = (products) => {
     const moreButtons = document.querySelectorAll('.home__more');
@@ -76,6 +115,7 @@ export const addCartListeners = (products) => {
         element.PN = product.PN;
         element.Price = product.Price;
         element.amount = 1;
+        let currentCart;
         if (currentCart == undefined){
             currentCart = JSON.parse(localStorage.getItem('cart'));
             if (currentCart==null) {
@@ -90,6 +130,7 @@ export const addCartListeners = (products) => {
         } else {
             currentCart.incrementAmount(checkIfCont);
         }
+        smallCartUpdate();
     };
 
     moreButtons.forEach((element)=>{
@@ -109,21 +150,18 @@ export const printCart = (event) => {
 
 export const cartUpdate = (event) => {
     if (event.key == 'cart'){
-        currentCart = JSON.parse(localStorage.getItem('cart'));
-        Object.setPrototypeOf(currentCart, Cart.prototype);
-    }
-    const cartButton = document.querySelector('.o-car');
-    if (cartButton.querySelector('.o-popup')==null){
-        const popup = document.createElement('div');
-        popup.classList.add('o-popup');
-        if(currentCart.sum()>0){
-            popup.innerText = currentCart.sum();
-            cartButton.appendChild(popup);
+        switch (location.href) {
+            case CARTURL: {
+                renderCart(cartTemplate);
+                break;
+            }
+            case PAYTURL: {
+                renderPayment(paymentTemplate);
+                break;
+            }
+            default: {break;}
         }
-    } else{
-        if(currentCart.sum()>0){
-            cartButton.appendChild(popup);
-        }
+        smallCartUpdate();
     }
 };
 

@@ -1,6 +1,6 @@
 import {renderProd} from "./renderProducts.js";
 import {getData} from "./requestData.js";
-import {addCartListeners, cartUpdate, printCart} from './cart.js';
+import {addCartListeners, cartUpdate, smallCartUpdate} from './cart.js';
 import {renderCart} from './cartRenderer.js';
 import {hoverMenu, toIndexHtml} from "./menu.js";
 import {shippingTemplate, paymentTemplate, renderPayment,congratsTemplate} from './paymentRenderer.js';
@@ -78,6 +78,8 @@ window.onload = () => {
             renderCart(cartTemplate);
         }
     });
+
+    smallCartUpdate();
 
     const favButton = document.querySelector('.o-fav');
     favButton.addEventListener("click", toFav);

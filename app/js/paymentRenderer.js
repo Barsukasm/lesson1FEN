@@ -1,5 +1,5 @@
 import {renderCart} from './cartRenderer.js';
-import {printCart} from "./cart.js";
+import {printCart, smallCartUpdate} from "./cart.js";
 import {ShippingInfo} from "./shippingInfo.js";
 import {toIndexHtml} from "./menu.js";
 import {proceedPaymentInfo} from './requestData.js';
@@ -45,6 +45,8 @@ export const renderPayment = (wrapperTemplate) => {
         }
     
         if (location.href == FINISHED){
+            localStorage.removeItem('cart');
+            smallCartUpdate();
             const back = document.querySelector('.back-to-shopping').querySelector('.o-button');
             back.addEventListener('click',toIndexHtml);
         }

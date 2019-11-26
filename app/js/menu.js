@@ -47,7 +47,6 @@ export const toIndexHtml = (event) =>{
 				const wrapperTemplate = document.querySelector('.home-wrapper-template');
 				renderProd(template,wrapperTemplate, "home__card",[...products]);
 				addCartListeners(products);
-				console.log('Event "toIndexHtml" fired!');
 			})
 			.catch(error=>{
 				console.log('Error in "toIndexHtml" event', error);
