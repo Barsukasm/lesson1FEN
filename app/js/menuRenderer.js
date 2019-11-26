@@ -2,7 +2,7 @@ const menuTemplate = document.querySelector(".menu-template");
 
 import {genIndex, renderProd} from './renderProducts.js';
 import { getData } from './requestData.js';
-import {addCartListeners} from './cart.js';
+import {addCartListeners} from './cartRenderer.js';
 
 const travel = (event) => {
     event.preventDefault();

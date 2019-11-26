@@ -1,7 +1,7 @@
 import {renderMenus} from './menuRenderer.js';
 import { getData } from './requestData.js';
 import {renderProd} from './renderProducts.js';
-import {addCartListeners} from "./cart.js";
+import {addCartListeners} from "./cartRenderer.js";
 import {SHIPURL, PAYTURL} from "./URLWatch.js";
 
 

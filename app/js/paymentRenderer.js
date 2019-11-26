@@ -1,5 +1,4 @@
-import {renderCart} from './cartRenderer.js';
-import {printCart, smallCartUpdate} from "./cart.js";
+import {renderCart, smallCartUpdate, printCart} from './cartRenderer.js';
 import {ShippingInfo} from "./shippingInfo.js";
 import {toIndexHtml} from "./menu.js";
 import {proceedPaymentInfo} from './requestData.js';
